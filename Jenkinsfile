@@ -9,5 +9,11 @@ pipeline {
         sh 'docker build -t aspnetapp .'
       }
     }
+    stage('Docker Run') {
+      agent any
+      steps {
+        sh 'docker run -p 8080:80 --name myapp aspnetapp'
+      }
+    }
   }
 }

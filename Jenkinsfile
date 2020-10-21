@@ -3,17 +3,17 @@
 pipeline {
   agent none
   stages {
-    stage('Docker Build') {
-      agent any
-      steps {
-        sh 'docker build -t aspnetapp .'
-      }
-    }
     stage('Remove existing containers') {
       agent any
       steps {
         sh 'docker stop $(docker ps -a -q)'
         sh 'docker rm $(docker ps -a -q)'
+      }
+    }
+    stage('Docker Build') {
+      agent any
+      steps {
+        sh 'docker build -t aspnetapp .'
       }
     }
     stage('Docker Run') {

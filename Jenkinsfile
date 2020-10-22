@@ -6,8 +6,7 @@ pipeline {
     stage('Remove existing containers') {
       agent any
       steps {
-        sh 'docker stop $(docker ps -a -q)'
-        sh 'docker rm $(docker ps -a -q)'
+        sh 'if [ "$(docker ps -a -q)" ]; then docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q); fi'
       }
     }
     stage('Docker Build') {

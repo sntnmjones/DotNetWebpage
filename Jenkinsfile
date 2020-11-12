@@ -16,9 +16,11 @@ pipeline {
       }
     }
     stage('Docker Run') {
-      agent docker {
+      agent {
+        docker {
         image 'aspnetapp'
         args '-p 80:80'
+        }
       }
       steps {
         sh 'docker run -d -p 80:80 --name myapp aspnetapp'

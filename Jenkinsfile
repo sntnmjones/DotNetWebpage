@@ -10,15 +10,18 @@ pipeline {
       }
     }
     stage('Docker Build') {
-      agent any
+      agent {
+        dockerfile {
+          args '-p 80:80'
+        }
+      }
       steps {
         sh 'docker build -t aspnetapp .'
       }
     }
     stage('Docker Run') {
       agent {
-        docker {
-        image 'aspnetapp'
+        any {
         args '-p 80:80'
         }
       }

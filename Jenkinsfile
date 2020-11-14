@@ -13,7 +13,7 @@ pipeline {
       agent any
       steps {
         sh 'docker build -t aspnetapp .'
-        sh 'docker run -p 80:80 --name myapp aspnetapp'
+        sh 'docker run -d -p 80:80 --name myapp aspnetapp'
       }
     }
   }

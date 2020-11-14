@@ -17,6 +17,7 @@ pipeline {
         }
       }
       steps {
+        echo 'Build stage'
         // sh 'docker build -t aspnetapp .'
       }
     }

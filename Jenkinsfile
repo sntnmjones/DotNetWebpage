@@ -12,7 +12,7 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t aspnetapp ./build/Dotnet'
+        sh 'docker build -t aspnetapp .'
       }
     }
     stage('Docker Run') {

@@ -18,7 +18,7 @@ pipeline {
     stage('Run') {
       agent any
       steps {
-        sh 'docker run -d -network jenkins -p 80:80 --name myapp aspnetapp'
+        sh 'docker run -d --network jenkins -p 80:80 --name myapp aspnetapp'
       }
     }
   }

@@ -19,7 +19,7 @@ pipeline {
       agent any
       steps {
         sh 'docker run -d -p 80:80 --name myapp aspnetapp'
-        sh "docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $INSTANCE_ID"
+        sh "docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' myapp"
       }
     }
   }
